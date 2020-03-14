@@ -10,7 +10,7 @@
             }
             body{
                 font-family: 'Lilita One', sans-serif;
-                background: var(--flame4);
+                background: var(--magenta4);
                 position: relative;
             }
 
@@ -23,7 +23,7 @@
             .layout {
                 display: grid;
                 grid-template-columns: repeat(48, 1fr);
-                grid-template-rows: repeat(27, 1fr);
+                grid-template-rows: repeat(48, 1fr);
                 height: 1080px;
                 width: 1920px;
                 position: absolute;
@@ -31,47 +31,92 @@
                 left: 0;
             }
 
-            .header {
-                grid-column: 2 / -8;
-                grid-row: 1;
+            .horizon {
+                grid-area: 1 / 1 / -1 / -1;
+                background: 
+                    radial-gradient(
+                        hsla(330, 75%, 22%, .5) 0%,
+                        hsla(180, 0%, 0%, .5) 70%
+                    ),
+                    linear-gradient(
+                        var(--violet1) 0%,
+                        var(--indigo2) 100%
+                    );
             }
 
-            .sidebar {
+            .land {
+                grid-area: 32 / 1 / -1 / -1;
+                background: 
+                    radial-gradient(
+                        hsla(330, 75%, 22%, .5) 0%,
+                        hsla(180, 0%, 0%, 0) 100%
+                    ),
+                    linear-gradient(
+                        var(--violet1) 0%,
+                        var(--magenta1) 10%,
+                        var(--flame1) 25%,
+                        var(--orange1) 100%
+                    );
+                overflow: hidden;
+                perspective: 1000px;
+            }
+
+            .grid-3d {
+                grid-area: 32 / 1 / -1 / -1;
+                background:
+                    linear-gradient(
+                        transparent 0%,
+                        var(--magenta4) 3%,
+                        transparent 6%
+                    ),
+                    linear-gradient(90deg,
+                        transparent 0%,
+                        var(--magenta4) 3%,
+                        transparent 6%
+                    );
+                background-size: 100px 100px;
+                transform: rotateX(70deg);
+                transform-origin: top;
+                width: 100vw;
+                height: 100vh;
+                animation: background3d-walk 2250ms infinite linear;
+            }
+            .header {
+                grid-column: 2 / -8;
+                grid-row: 2;
             }
 
             .gameplay {
                 background: rgba(0, 0, 0, .25);
-                grid-column: 2 / span 38;
-                grid-row: 6 / span 21;
+                grid-area: 6 / 2 / span 39 / span 39;
             }
 
             .webcam {
                 background: rgba(0, 0, 0, .25);
                 padding-bottom: 56.25%;
-                grid-column: 34 / span 14;
-                grid-row: 2 / span 8;
+                grid-area: 39 / 39 / span 9 / span 9;
+            }
+
+            @keyframes background3d-walk {
+                0% {
+                    background-position-y: 0px;
+                }
+                100% {
+                    background-position-y: 100px;
+                }
             }
         </style>
     </head>
     <body>
-        <svg class="groovy-background" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <defs>
-                <radialGradient id="myGradient">
-                    <stop offset="10%" stop-color="gold" />
-                    <stop offset="95%" stop-color="red" />
-                </radialGradient>
-            </defs>
-
-            <g >
-
-            </g>
-            <!-- using my linear gradient -->
-            <circle cx="5" cy="5" r="4" fill="url('#myGradient')" />
-        </svg> 
         <section class="layout">
+            <div class="horizon"></div>
+            <div class="land">
+                <div class="grid-3d"></div>
+            </div>
             <header class="header">Welcome to my stream!</header>
-            <div class="gameplay"></div>
+            <main class="gameplay"></main>
             <div class="webcam"></div>
+
         </section>
         <script type="text/javascript">
 
