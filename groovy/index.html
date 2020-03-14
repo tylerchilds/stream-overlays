@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link type="text/css"  rel="stylesheet" href="https://www.tylerchilds.com/css/colors.css" />
+        <style type="text/css">
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            body{
+                font-family: 'Lilita One', sans-serif;
+                background: var(--flame4);
+                position: relative;
+            }
+
+            .groovy-background {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .layout {
+                display: grid;
+                grid-template-columns: repeat(48, 1fr);
+                grid-template-rows: repeat(27, 1fr);
+                height: 1080px;
+                width: 1920px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .header {
+                grid-column: 2 / -8;
+                grid-row: 1;
+            }
+
+            .sidebar {
+            }
+
+            .gameplay {
+                background: rgba(0, 0, 0, .25);
+                grid-column: 2 / span 38;
+                grid-row: 6 / span 21;
+            }
+
+            .webcam {
+                background: rgba(0, 0, 0, .25);
+                padding-bottom: 56.25%;
+                grid-column: 34 / span 14;
+                grid-row: 2 / span 8;
+            }
+        </style>
+    </head>
+    <body>
+        <svg class="groovy-background" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <radialGradient id="myGradient">
+                    <stop offset="10%" stop-color="gold" />
+                    <stop offset="95%" stop-color="red" />
+                </radialGradient>
+            </defs>
+
+            <g >
+
+            </g>
+            <!-- using my linear gradient -->
+            <circle cx="5" cy="5" r="4" fill="url('#myGradient')" />
+        </svg> 
+        <section class="layout">
+            <header class="header">Welcome to my stream!</header>
+            <div class="gameplay"></div>
+            <div class="webcam"></div>
+        </section>
+        <script type="text/javascript">
+
+        </script>
+    </body>
+</html>
